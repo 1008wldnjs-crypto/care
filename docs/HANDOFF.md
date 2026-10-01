@@ -22,9 +22,9 @@
 
 | 경로 | 역할 | 원격 |
 |------|------|------|
-| `Desktop/care` | 명세·핸드오프 | `origin` → `https://github.com/1008wldnjs-crypto/care.git` |
-| `Desktop/care-consumer` | 소비자 Expo 앱 | **remote 미설정** (푸시 전 `gh repo create` 등 필요) |
-| `Desktop/care-caregiver` | 사회복지사 Expo 앱 | **remote 미설정** |
+| `Desktop/care` | 명세·핸드오프 | `origin` → `https://github.com/1008wldnjs-crypto/care.git` (**push 완료**) |
+| `Desktop/care-consumer` | 소비자 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-consumer.git` (**GitHub에 레포 생성 후 push 필요**) |
+| `Desktop/care-caregiver` | 사회복지사 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-caregiver.git` (**GitHub에 레포 생성 후 push 필요**) |
 
 - 모노레포 아님. Mac 전환 시 **세 폴더** 모두 동기화.
 - 구현 기준: `care/docs/PRODUCT_SPEC.md`
@@ -91,11 +91,21 @@ Firebase, 실로그인, 실PG, 두 앱 연동, 조건 조정 제안 UI
 
 ## 6. 세션 로그
 
-### 2026-10-02 (핸드오프·커밋)
+### 2026-10-02 (핸드오프·커밋·푸시)
 
-- **한 일:** HANDOFF/규칙 정리, 기능별 커밋·push 시도(문서 레포). 이전 세션에서 소비자 A플로우·제공자 목 UI·매칭/고객센터 정책 반영 완료 상태 기록.
-- **다음:** Firebase 또는 실로그인 · 앱 2개 remote 설정
-- **주의:** DEV에서 매칭 대기 타이머 단축 · caregiver 지원 후 즉시 매칭 데모 · 메모리 스토어는 재시작 시 초기화
+- **한 일**
+  - `HANDOFF.md`·`handoff.mdc` 갱신/추가
+  - **care** 커밋·push: `docs: 다른 Mac·에이전트용 핸드오프…`
+  - **care-consumer** 기능 커밋 3개 (remote는 URL만 연결, GitHub 레포 미생성으로 push 실패)
+    - `feat(consumer): 공유 UI·단가표·앱 상수 기반을 추가한다`
+    - `feat(consumer): 신청·매칭·상주 상담 플로우 UI를 추가한다`
+    - `feat(consumer): 채팅·결제·리뷰·고객센터 목 플로우를 추가한다`
+  - **care-caregiver** 기능 커밋 3개 (동일하게 push 실패)
+    - `feat(caregiver): 공유 UI·단가·앱 상수 기반을 추가한다`
+    - `feat(caregiver): 의뢰 피드·상세·지원 플로우를 추가한다`
+    - `feat(caregiver): 내 일정·채팅·도움완료·정산 화면을 추가한다`
+- **사용자 할 일:** GitHub에서 `care-consumer`, `care-caregiver` 빈 레포 생성 후 각 폴더에서 `git push -u origin main`
+- **다음 구현:** Firebase 또는 실로그인
 
 ### 2026-10-02 (이전 작업 — 구현)
 

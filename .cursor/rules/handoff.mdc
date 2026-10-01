@@ -1,0 +1,17 @@
+---
+description: 세션 종료 시 HANDOFF.md를 갱신해 다른 Mac/에이전트가 이어서 작업할 수 있게 한다
+alwaysApply: true
+---
+
+# 핸드오프 규칙
+
+두 대 이상의 Mac·여러 에이전트가 번갈아 작업한다.
+
+1. 새 세션 시작 시 `docs/HANDOFF.md`와 `docs/PRODUCT_SPEC.md`를 먼저 읽는다.
+2. 구현 기준은 `PRODUCT_SPEC.md`다. TBD는 임의로 확정하지 않는다.
+3. **작업 마무리 시** 사용자에게 커밋을 강요하지 않더라도, `docs/HANDOFF.md`의  
+   - §3 현재 구현 상태  
+   - §4 다음에 할 일  
+   - §6 세션 로그(날짜 블록 추가)  
+   를 반드시 갱신한다.
+4. 앱 코드는 `care-consumer` / `care-caregiver`(Desktop 형제 폴더)에 있다. 문서만 `care`에 있다.

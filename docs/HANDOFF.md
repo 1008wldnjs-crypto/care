@@ -23,7 +23,7 @@
 | 경로 | 역할 | 원격 |
 |------|------|------|
 | `Desktop/care` | 명세·핸드오프 | `origin` → `https://github.com/1008wldnjs-crypto/care.git` (**push 완료**) |
-| `Desktop/care-consumer` | 소비자 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-consumer.git` (**push 완료**, `0959d2b`) |
+| `Desktop/care-consumer` | 소비자 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-consumer.git` (**push 완료**, `c7810bf`) |
 | `Desktop/care-caregiver` | 사회복지사 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-caregiver.git` (**push 완료**, `e6b8e58`) |
 
 - 모노레포 아님. Mac 전환 시 **세 폴더** 모두 동기화.
@@ -61,8 +61,9 @@ cd ~/Desktop/care-caregiver && npm start
 내 정보 하위: 프로필(예약 연락처), 결제수단 관리(등록 수단), 공지(목), 환경설정(푸시·알림톡 스위치·연동 전), 사회복지사 지원(안내+고객센터). `PlainScreen`.  
 매칭 대기·담당자 선택·매칭 완료·예약 내역은 예약 단계와 같이 제목 30px, 본문 16px 이상, 카드 모서리 20, 높이 60 버튼크기.  
 예약 내역 카드 → `MyRequests`(예약 상세): 확정=채팅·서비스 완료 처리 / 결제 대기=결제·채팅 / 결제 완료=리뷰. 매칭 완료의 「예약 내역 보기」는 히스토리 탭으로.  
+채팅·결제·리뷰도 예약 단계와 같은 톤(제목 30px·카드 20·본문 16+·버튼 60, 자체 뒤로). 결제는 결제수단 등록과 같은 행 선택 UI. 채팅 말풍선은 orangeSoft.  
 금액은 pricing 설정만 본다. **임시 단가: 전 카테고리 시간당 25,000원.** 긴급 시 +30%. 매칭 확인의 「확인」 다음에 결제수단 등록이 있다. 카카오페이 기본, 카드·계좌는 「다른 방법으로 등록」. 여기서는 청구하지 않는다. 서비스 종료 후 목 결제 화면은 그대로다. 상주는 전화 상담.  
-주요: `src/booking/pricing.ts`, `src/screens/BookingFlowScreen.tsx`, `src/screens/PlainScreen.tsx`, `src/screens/MyRequestsScreen.tsx`
+주요: `src/booking/pricing.ts`, `src/screens/BookingFlowScreen.tsx`, `src/screens/PlainScreen.tsx`, `src/screens/MyRequestsScreen.tsx`, `ChatScreen`/`PaymentScreen`/`ReviewScreen`
 
 ### care-caregiver — 목 UI 완료 · 소비자와 같은 톤
 
@@ -81,7 +82,7 @@ cd ~/Desktop/care-caregiver && npm start
 
 > **에이전트:** 작업이 끝날 때마다 「지금 추천」을 한 줄로 바로 제시한다. 사람이 매번 「이제 뭐 하지」를 묻지 않게 한다.
 
-**지금 추천 (2026-11-08):** 채팅·결제·리뷰 화면 톤을 예약 단계(제목 30px·카드 20·버튼 60)에 맞춘다. (키 불필요)
+**지금 추천 (2026-11-08):** `ui.tsx`의 공통 `Title`/카드(아직 26px·radius 14)를 시안 토큰에 맞추거나, 남은 구형 화면(`PriceEstimate` 등)을 정리한다. (키 불필요)
 
 **확정 (2026-10-29):** 제공자는 사회복지사와 요양보호사. 주소 검색은 네이버. 긴급은 카테고리를 먼저 고른다. 알림은 앱 푸시와 알림톡. 예약은 4주. 신체 케어 법적 범위는 아직.  
 **임시 단가 (2026-11-08):** 전 카테고리 시간당 25,000원.  
@@ -122,6 +123,11 @@ cd ~/Desktop/care-caregiver && npm start
 ---
 
 ## 6. 세션 로그
+
+### 2026-11-08 (채팅·결제·리뷰 톤)
+
+- Chat / Payment / Review를 매칭·예약 상세와 같은 톤으로 맞춤. 스택 헤더 숨김, 자체 뒤로·제목 30px.
+- 결제 수단 행은 결제수단 등록과 동일. 채팅 말풍선 orangeSoft + 진한 글자.
 
 ### 2026-11-08 (예약 내역 → 상세·결제·리뷰)
 

@@ -24,7 +24,7 @@
 |------|------|------|
 | `Desktop/care` | 명세·핸드오프 | `origin` → `https://github.com/1008wldnjs-crypto/care.git` (**push 완료**) |
 | `Desktop/care-consumer` | 소비자 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-consumer.git` (**push 완료**, `c1e6b0b`) |
-| `Desktop/care-caregiver` | 사회복지사 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-caregiver.git` (**push 완료**, `9132301`) |
+| `Desktop/care-caregiver` | 사회복지사 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-caregiver.git` (**push 완료**, `71aa3f9`) |
 
 - 모노레포 아님. Mac 전환 시 **세 폴더** 모두 동기화.
 - 구현 기준: `care/docs/PRODUCT_SPEC.md`
@@ -62,10 +62,11 @@ cd ~/Desktop/care-caregiver && npm start
 금액은 pricing 설정만 본다. 건당·시간당 단가는 아직 null이라 화면에는 「아직 정해지지 않았어요」. 「항목 수 × 4,000원」은 폐기. 매칭 확인의 「확인」 다음에 결제수단 등록이 있다. 카카오페이 기본, 카드·계좌는 「다른 방법으로 등록」. 여기서는 청구하지 않는다. 서비스 종료 후 목 결제 화면은 그대로다. 상주는 전화 상담.  
 주요: `src/booking/pricing.ts`, `src/screens/BookingFlowScreen.tsx`
 
-### care-caregiver — 목 UI 완료
+### care-caregiver — 목 UI 완료 · 소비자와 같은 톤
 
-피드 → 지원 → 일정 → 채팅 → 완료 → 정산(15%)  
-주요: `src/services/jobStore.ts` (지원 후 데모로 즉시 matched)
+피드 → 지원 → 일정 → 채팅 → 완료 → 정산(15%). 플로우는 그대로.  
+톤: Pretendard, 주황 버튼(`#FF8A1F` + 진한 글자), 카드 모서리 20, 제목 30px.  
+주요: `src/theme/colors.ts`, `src/components/ui.tsx`, `src/services/jobStore.ts`
 
 ### 미구현
 
@@ -77,6 +78,7 @@ cd ~/Desktop/care-caregiver && npm start
 
 **확정 (2026-10-29):** 제공자는 사회복지사와 요양보호사. 주소 검색은 네이버. 긴급은 카테고리를 먼저 고른다. 알림은 앱 푸시와 알림톡. 예약은 4주. 단가 숫자와 신체 케어 법적 범위는 아직.  
 결제수단 등록 화면은 매칭 확인 다음에 있다. 실 PG·보호자 계정 연결은 아직.  
+제공자 앱은 소비자와 같은 톤으로 다듬음(플로우 유지).  
 로그인 실연동은 키 준비 후. Firebase 의뢰 연동은 그 다음.
 
 열린 결정: 기본 요금. 신체 케어를 어디까지 할 수 있는지는 법적 확인 전. 최종 확인에 동의 체크는 두지 않는다.
@@ -113,6 +115,11 @@ cd ~/Desktop/care-caregiver && npm start
 ---
 
 ## 6. 세션 로그
+
+### 2026-11-08 (제공자 앱 톤)
+
+- 사회복지사 앱을 소비자와 같은 톤으로만 다듬음. 목 플로우(피드→지원→일정→채팅→완료→정산)는 유지.
+- Pretendard, 버튼·카드·색 토큰 정렬. 채팅 말풍선은 흰 글자 대신 orangeSoft.
 
 ### 2026-11-08 (이 Mac · Expo Go)
 

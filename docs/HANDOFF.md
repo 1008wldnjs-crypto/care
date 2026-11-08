@@ -23,7 +23,7 @@
 | 경로 | 역할 | 원격 |
 |------|------|------|
 | `Desktop/care` | 명세·핸드오프 | `origin` → `https://github.com/1008wldnjs-crypto/care.git` (**push 완료**) |
-| `Desktop/care-consumer` | 소비자 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-consumer.git` (**push 완료**, `ada696d`) |
+| `Desktop/care-consumer` | 소비자 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-consumer.git` (**push 완료**, `f32bf88`) |
 | `Desktop/care-caregiver` | 사회복지사 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-caregiver.git` (**push 완료**, `e6b8e58`) |
 
 - 모노레포 아님. Mac 전환 시 **세 폴더** 모두 동기화.
@@ -66,8 +66,9 @@ cd ~/Desktop/care-caregiver && npm start
 금액은 pricing 설정만 본다. **임시 단가: 전 카테고리 시간당 25,000원.** 긴급 시 +30%. 매칭 확인의 「확인」 다음에 결제수단 등록이 있다. 카카오페이 기본, 카드·계좌는 「다른 방법으로 등록」. 여기서는 청구하지 않는다. 서비스 종료 후 목 결제 화면은 그대로다. 상주는 전화 상담.  
 예약은 `BookingFlow`만. 구형 `Schedule`/`PickService`/`SubCategory`/`PriceEstimate`/`RequestSummary`·미사용 `Live`/`Talk` 화면 제거.  
 주소: 홈 「주소 입력」·예약 시트 모두 도로명·상세 직접입력(네이버 연동 전). 도로명+상세 필수.  
-상주 상담: 예약 톤(제목 30·칩·행 선택·초록 안내). 앱에서 전화 안 검.  
-주요: `BookingFlowScreen`, `BasicSettingsScreen`, `ResidentConsultScreen`, `PlainScreen`, `MyRequestsScreen`
+상주 상담·고객센터: 예약 톤(제목 30·입력 radius 20·버튼 60). 고객센터는 앱 안 문의만.  
+로그인(`SignUp`): 제목 30·자체 뒤로·카카오/네이버/휴대폰. `AuthButtons`에 start/login 문구. 실연동 전.  
+주요: `BookingFlowScreen`, `StartScreen`/`SignUpScreen`, `SupportScreen`, `ResidentConsultScreen`
 
 ### care-caregiver — 목 UI 완료 · 소비자와 같은 톤
 
@@ -86,7 +87,7 @@ cd ~/Desktop/care-caregiver && npm start
 
 > **에이전트:** 작업이 끝날 때마다 「지금 추천」을 한 줄로 바로 제시한다. 사람이 매번 「이제 뭐 하지」를 묻지 않게 한다.
 
-**지금 추천 (2026-11-08):** 고객센터(`Support`) 화면 톤을 예약 단계에 맞춘다. (키 불필요)
+**지금 추천 (2026-11-08):** Expo Go로 소비자 앱 화면 한 바퀴 확인(주소→예약→매칭→결제·리뷰·상주·고객센터). (키 불필요)
 
 **확정 (2026-10-29):** 제공자는 사회복지사와 요양보호사. 주소 검색은 네이버. 긴급은 카테고리를 먼저 고른다. 알림은 앱 푸시와 알림톡. 예약은 4주. 신체 케어 법적 범위는 아직.  
 **임시 단가 (2026-11-08):** 전 카테고리 시간당 25,000원.  
@@ -127,6 +128,14 @@ cd ~/Desktop/care-caregiver && npm start
 ---
 
 ## 6. 세션 로그
+
+### 2026-11-08 (로그인·첫 화면 톤)
+
+- `SignUp`을 예약 톤으로. `AuthButtons`에 start/login 모드. 첫 화면 로그인·둘러보기 링크 강조, 연동 전 안내 문구.
+
+### 2026-11-08 (고객센터 톤)
+
+- `Support`를 예약 톤으로. 자체 뒤로·제목 30px, 입력 radius 20, 저장된 연락처 미리 채움, 전화번호 형식 검사.
 
 ### 2026-11-08 (상주 상담 톤)
 

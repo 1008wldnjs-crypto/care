@@ -23,7 +23,7 @@
 | 경로 | 역할 | 원격 |
 |------|------|------|
 | `Desktop/care` | 명세·핸드오프 | `origin` → `https://github.com/1008wldnjs-crypto/care.git` (**push 완료**) |
-| `Desktop/care-consumer` | 소비자 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-consumer.git` (**push 완료**, `8ac2ed8`) |
+| `Desktop/care-consumer` | 소비자 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-consumer.git` (**push 완료**, `ada696d`) |
 | `Desktop/care-caregiver` | 사회복지사 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-caregiver.git` (**push 완료**, `e6b8e58`) |
 
 - 모노레포 아님. Mac 전환 시 **세 폴더** 모두 동기화.
@@ -64,7 +64,10 @@ cd ~/Desktop/care-caregiver && npm start
 채팅·결제·리뷰도 예약 단계와 같은 톤(제목 30px·카드 20·본문 16+·버튼 60, 자체 뒤로). 결제는 결제수단 등록과 같은 행 선택 UI. 채팅 말풍선은 orangeSoft.  
 공통 `ui.tsx`: Title 30px, Card/Chip radius·border·16px+ 시안 토큰.  
 금액은 pricing 설정만 본다. **임시 단가: 전 카테고리 시간당 25,000원.** 긴급 시 +30%. 매칭 확인의 「확인」 다음에 결제수단 등록이 있다. 카카오페이 기본, 카드·계좌는 「다른 방법으로 등록」. 여기서는 청구하지 않는다. 서비스 종료 후 목 결제 화면은 그대로다. 상주는 전화 상담.  
-주요: `src/booking/pricing.ts`, `src/screens/BookingFlowScreen.tsx`, `src/screens/PlainScreen.tsx`, `src/screens/MyRequestsScreen.tsx`, `ChatScreen`/`PaymentScreen`/`ReviewScreen`
+예약은 `BookingFlow`만. 구형 `Schedule`/`PickService`/`SubCategory`/`PriceEstimate`/`RequestSummary`·미사용 `Live`/`Talk` 화면 제거.  
+주소: 홈 「주소 입력」·예약 시트 모두 도로명·상세 직접입력(네이버 연동 전). 도로명+상세 필수.  
+상주 상담: 예약 톤(제목 30·칩·행 선택·초록 안내). 앱에서 전화 안 검.  
+주요: `BookingFlowScreen`, `BasicSettingsScreen`, `ResidentConsultScreen`, `PlainScreen`, `MyRequestsScreen`
 
 ### care-caregiver — 목 UI 완료 · 소비자와 같은 톤
 
@@ -83,7 +86,7 @@ cd ~/Desktop/care-caregiver && npm start
 
 > **에이전트:** 작업이 끝날 때마다 「지금 추천」을 한 줄로 바로 제시한다. 사람이 매번 「이제 뭐 하지」를 묻지 않게 한다.
 
-**지금 추천 (2026-11-08):** 구형 스택 화면(`Schedule`/`SubCategory`/`PriceEstimate`/`PickService` 등)이 `BookingFlow`와 겹치면 정리·리다이렉트한다. (키 불필요)
+**지금 추천 (2026-11-08):** 고객센터(`Support`) 화면 톤을 예약 단계에 맞춘다. (키 불필요)
 
 **확정 (2026-10-29):** 제공자는 사회복지사와 요양보호사. 주소 검색은 네이버. 긴급은 카테고리를 먼저 고른다. 알림은 앱 푸시와 알림톡. 예약은 4주. 신체 케어 법적 범위는 아직.  
 **임시 단가 (2026-11-08):** 전 카테고리 시간당 25,000원.  
@@ -124,6 +127,20 @@ cd ~/Desktop/care-caregiver && npm start
 ---
 
 ## 6. 세션 로그
+
+### 2026-11-08 (상주 상담 톤)
+
+- `ResidentConsult`를 예약 단계 톤으로. 자체 뒤로·제목 30px, 시간대 칩, 식사·등급 행 선택, 「곧 연락드릴게요」 초록 안내.
+
+### 2026-11-08 (주소 직접입력)
+
+- `BasicSettings`를 「주소 입력」으로. 가짜 검색 제거, 도로명·상세(동·호) 직접입력. 예약 `AddressSheet`도 동일.
+- 도로명+상세 모두 있어야 저장. 홈 저장값은 예약 1단계에 미리 채움.
+
+### 2026-11-08 (구형 예약 스택 제거)
+
+- `BookingFlow`와 겹치던 Schedule·PickService·SubCategory·PriceEstimate·RequestSummary 삭제.
+- 홈에 흡수된 LiveScreen·TalkScreen도 삭제. 내비 타입·RootNavigator 정리.
 
 ### 2026-11-08 (ui.tsx 시안 토큰)
 

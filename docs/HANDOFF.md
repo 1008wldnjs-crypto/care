@@ -24,7 +24,7 @@
 |------|------|------|
 | `Desktop/care` | 명세·핸드오프 | `origin` → `https://github.com/1008wldnjs-crypto/care.git` (**push 완료**) |
 | `Desktop/care-consumer` | 소비자 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-consumer.git` (**push 완료**, `60958cd`) |
-| `Desktop/care-caregiver` | 사회복지사 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-caregiver.git` (**push 완료**, `daaabe0`) |
+| `Desktop/care-caregiver` | 사회복지사 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-caregiver.git` (**push 완료**, `e6b8e58`) |
 
 - 모노레포 아님. Mac 전환 시 **세 폴더** 모두 동기화.
 - 구현 기준: `care/docs/PRODUCT_SPEC.md`
@@ -66,7 +66,8 @@ cd ~/Desktop/care-caregiver && npm start
 
 피드 → 지원 → 일정 → 채팅 → 완료 → 정산(15%). 플로우는 그대로.  
 톤: Pretendard, 주황 버튼(`#FF8A1F` + 진한 글자), 카드 모서리 20, 제목 30px.  
-주요: `src/theme/colors.ts`, `src/components/ui.tsx`, `src/services/jobStore.ts`
+의뢰 카드·상세는 소비자 예약 필드에 맞춤: 도움 항목·일정·긴급·반복·지역·돌봄 받는 분·요청사항·예상 금액(25,000/h). 상세 주소는 매칭 후.  
+주요: `src/theme/colors.ts`, `src/types/jobs.ts`, `src/services/jobStore.ts`
 
 ### 미구현
 
@@ -116,6 +117,11 @@ cd ~/Desktop/care-caregiver && npm start
 ---
 
 ## 6. 세션 로그
+
+### 2026-11-08 (제공자 의뢰 필드)
+
+- 피드·상세·일정을 소비자 예약 필드에 맞춤. 도움 항목 복수, 당일 긴급·매주, 돌봄 받는 분, 요청사항. 금액은 25,000/h(+긴급 30%).
+- 매칭 전 지역 요약만, 도로명은 매칭 후 상세에 표시.
 
 ### 2026-11-08 (임시 단가)
 

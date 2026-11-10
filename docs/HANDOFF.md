@@ -24,7 +24,7 @@
 |------|------|------|
 | `Desktop/care` | 명세·핸드오프 | `origin` → `https://github.com/1008wldnjs-crypto/care.git` (**push 완료**) |
 | `Desktop/care-consumer` | 소비자 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-consumer.git` (**push 완료**, `8f3b2d3`) |
-| `Desktop/care-caregiver` | 사회복지사 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-caregiver.git` (**push 완료**, `5a3820b`) |
+| `Desktop/care-caregiver` | 사회복지사 Expo 앱 | `origin` → `https://github.com/1008wldnjs-crypto/care-caregiver.git` (**push 완료**, `aa8ff5a`) |
 
 - 모노레포 아님. Mac 전환 시 **세 폴더** 모두 동기화.
 - 구현 기준: `care/docs/PRODUCT_SPEC.md`
@@ -131,7 +131,7 @@ cd ~/Desktop/care-caregiver && npm start
 
 ### 2026-11-10 (커밋)
 
-- 소비자 `8f3b2d3`, 사회복지사 `5a3820b`를 커밋했다. `assets/dajeong-care-hero.jpg`는 넣지 않았다. 매칭 대기 빌드는 폰이 잠겨 아직 설치하지 못했다.
+- 소비자 `8f3b2d3`, 사회복지사 `aa8ff5a`를 푸시했다. 사회복지사 쪽은 다른 Mac의 `e6b8e58` 위에 단가 커밋을 얹었다. `assets/dajeong-care-hero.jpg`는 넣지 않았다. 매칭 대기 빌드는 폰이 잠겨 아직 설치하지 못했다.
 
 ### 2026-11-10 (매칭 대기만)
 
